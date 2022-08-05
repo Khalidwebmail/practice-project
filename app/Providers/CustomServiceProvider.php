@@ -2,9 +2,10 @@
 
 namespace App\Providers;
 
+use App\Repositories\ExampleFacade;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\DB;
-class ExampleServiceProvider extends ServiceProvider
+
+class CustomServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -13,7 +14,9 @@ class ExampleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        app()->bind('example_facade', function (){
+            return new ExampleFacade();
+        });
     }
 
     /**
@@ -23,11 +26,6 @@ class ExampleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $data = [];
-        $data['a'] = 10;
-        $data['b'] = 20;
-        $data['c'] = 30;
-
-        view()->share('number', $data);
+        //
     }
 }
