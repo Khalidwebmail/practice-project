@@ -14,11 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    dd(app());
     return view('welcome');
 });
 
 Route::get('/test', function () {
     app()->make("first_service_provider");
     return "Test page";
+});
+
+Route::get('/test-one', function () {
+    return view('test');
 });
