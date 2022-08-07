@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-//    return view('welcome');
-    CustomService::testFacade();
+    return view('welcome');
 });
 
 Route::get('/test', function () {
@@ -26,3 +25,7 @@ Route::get('/test', function () {
 Route::get('/test-one', function () {
     return view('test');
 });
+
+Route::get('/country', function (){
+    return view('contact');
+})->middleware('country');
